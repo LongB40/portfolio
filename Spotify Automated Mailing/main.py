@@ -28,10 +28,13 @@ def main():
 
     # Go through each reciepents and send them an email.
     for key in receiver_list:
+        message, subject = process_content('content.txt', key)
+        print(message)
+        exit()
         email['from'] = bot.EMAIL_ADDRESS
         email['to'] = receiver_list[key]
-        email['subject'] = "This is a reminder for you to pay Long!"
-        email.set_content(process_main_content('content.txt', key))
+        email['subject'] = subject
+        email.set_content(message)
         gmail_server.send_message(email)
     
     # Clean up and notification.
@@ -40,9 +43,9 @@ def main():
     print ("Your mail has been sent successfully")
 
 
-def process_main_content(filename, recipient_name):
+def process_content(filename, recipient_name):
     """
-    This function is for processing the main content of the email.
+    This function is for processing the content.txt file.
         @Filename: The name of our content file
         @recipient_name: who is the one will be reciving this message
 
@@ -52,14 +55,19 @@ def process_main_content(filename, recipient_name):
     
     # Open content file with utf-8 encoded
     with codecs.open(filename, 'r', "utf-8") as file:
-        message = file.read()
+        file_content = file.readlines()
+
+    # seperate the subject and the message from the content file
+    subject = file_content[0]
+    message = ""
+    for segment in file_content[2:]:
+        message += segment
 
     # Replace @ with the recipent name
     message = message.replace("@", recipient_name) 
 
     file.close()
 
-    return message
-
+    return message, subject
 
 main()
