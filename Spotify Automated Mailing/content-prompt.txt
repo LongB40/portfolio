@@ -1,8 +1,9 @@
 [Subject]
-
 Dear @!
 
 [Message Content]
 
 Regards
 [your name]
+
+*Note: this is just a prompt, so if you don't want your personal information make sure to add this into your .gitignore before you commit.
