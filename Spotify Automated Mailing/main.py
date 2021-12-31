@@ -9,6 +9,7 @@ def main():
     TODO: 
     - Automated the whole thing.
     - Fix the error, that the content of email doesn't show correctly
+    - Write a requirement.txt
     """
 
     # Initialize our bot to store the main user email information and the list of recievers.
