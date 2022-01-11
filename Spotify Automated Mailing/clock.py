@@ -13,7 +13,7 @@ def scheduled_job():
 
 # Add a job that will start the scheduled_job function on the given time. for more information
 # please look at https://apscheduler.readthedocs.io/en/3.x/index.html
-scheduler.add_job(scheduled_job, 'cron', year='*', month='*', day=19, hour=12)
+scheduler.add_job(scheduled_job, 'cron', year='*', month='*', day=11, hour=16, minute=26)
 
 # Start the scheduler object.
 scheduler.start()

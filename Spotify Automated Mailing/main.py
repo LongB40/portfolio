@@ -64,5 +64,3 @@ def process_content(filename, recipient_name):
     file.close()
 
     return message, subject
-
-main()
