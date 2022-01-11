@@ -8,8 +8,8 @@ def main():
     This is our main function, where it will handles most of the logistic of the system.
     TODO: 
     - Automated the whole thing.
-    - Fix the error, that the content of email doesn't show correctly
-    - Write a requirement.txt
+    - Fix the error, that the content of email doesn't show correctly (Done)
+    - Write a requirement.txt (Done)
     """
 
     # Initialize our bot to store the main user email information and the list of recievers.
@@ -36,8 +36,6 @@ def main():
 
     # Clean up and notification.
     gmail_server.quit()
-
-    print ("Your mail has been sent successfully")
 
 
 def process_content(filename, recipient_name):
