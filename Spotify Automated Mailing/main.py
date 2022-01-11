@@ -7,9 +7,11 @@ def main():
     """
     This is our main function, where it will handles most of the logistic of the system.
     TODO: 
-    - Automated the whole thing.
+    - Make sure the timezone won't affecting anything (Done)
+    - Automated the whole thing. (Done)
     - Fix the error, that the content of email doesn't show correctly (Done)
     - Write a requirement.txt (Done)
+    - Comment the rest of the code. Maybe write an document?
     """
 
     # Initialize our bot to store the main user email information and the list of recievers.
