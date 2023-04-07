@@ -1,7 +1,13 @@
-import smtplib, json, io
+import smtplib
+import json
+import io
+import requests
+from PIL import Image
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
+from email.mime.image import MIMEImage
 from user import User
+
 
 def main():
     """
@@ -16,7 +22,7 @@ def main():
 
     # Initialize our bot to store the main user email information and the list of recievers.
     bot = User()
-    
+
     # Initialize our connection with gmail.com server
     gmail_server = smtplib.SMTP('smtp.gmail.com', 587)
     gmail_server.starttls()
@@ -47,9 +53,9 @@ def process_content(filename, recipient_name):
         @recipient_name: who is the one will be reciving this message
 
     TODO: 
-    - Adding a generated joke or memes
+    - Adding a generated gif
     """
-    
+
     # Open content file with utf-8 encoded
     with io.open(filename, 'r', encoding='utf8') as file:
         file_content = file.readlines()
@@ -61,8 +67,17 @@ def process_content(filename, recipient_name):
         message += segment
 
     # Replace @ with the recipent name
-    message = message.replace("@", recipient_name) 
+    message = message.replace("@", recipient_name)
 
     file.close()
 
     return message, subject
+
+
+r = requests.get("https://api.imgflip.com/caption_image?template_id=%s&username=%s&password=%s&text0=%s&text1=%s" %
+                 (222403160, "poohjecter", "Bengates1!", "Spotify Family Leader", "For your financial support"))
+if r.status_code == 200:
+    # reading the request results, by using json.
+    r_json = json.loads(r.content)
+    meme_url = r_json["data"]["url"]
+    Image.open(requests.get(meme_url, stream=True).raw).show()
