@@ -1,0 +1,15 @@
+{
+    "manifest_version":3,
+    "name": "Youtube Short Auto Scroller",
+    "version": "1.0",
+    "permissions": [
+        "tabs",
+        "activeTab"
+    ],
+    "content_scripts": [
+        {
+            "matches": ["*://www.youtube.com/*"],
+            "js": ["content.js"]
+        }
+    ]
+}
