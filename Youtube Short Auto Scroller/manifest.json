@@ -1,5 +1,5 @@
 {
-    "manifest_version":3,
+    "manifest_version":2,
     "name": "Youtube Short Auto Scroller",
     "version": "1.0",
     "permissions": [
@@ -8,8 +8,13 @@
     ],
     "content_scripts": [
         {
-            "matches": ["*://www.youtube.com/*"],
-            "js": ["content.js"]
+            "matches": ["https://www.youtube.com/*"],
+            "js": ["content.js"],
+            "run_at": "document_end"
         }
-    ]
+    ],
+    "background": {
+        "scripts": ["background.js"],
+        "persistent": false
+    }
 }

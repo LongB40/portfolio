@@ -2,14 +2,14 @@ import requests
 import json
 
 # Define your API key and the API endpoint URL
-api_key = "AIzaSyD6EN2lFucJRBM1Z2pFU5JYYGSEL-XbSiw"
+api_key = "AIzaSyD0L60t-xQaVI_G_ya8hxbF5_VeVSnZwCU"
 api_endpoint = "https://www.googleapis.com/youtube/v3/videos"
 
 # Define the parameters of your API request
 params = {
     "key": api_key,
     "part": "snippet,contentDetails,statistics",
-    "id": "Gwd162sbRpE"
+    "id": "XJf7Gj_itSg"
 }
 
 # Send the API request using the requests library
